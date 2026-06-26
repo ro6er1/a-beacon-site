@@ -4,10 +4,12 @@ title = 'A medieval misadventure'
 theme = 'ananke'
 
 [params]
-  custom_css = ["custom.css"]
   background_color_class = "bg-black"
   body_classes = "avenir bg-near-black white"
   featured_image = "/images/banner.jpg"
   description = "A point-and-click adventure set in a dark medieval fantasy world"
   site_logo = "/images/logo.png"
   footer_title = "A Beacon"
+
+  [params.ananke]
+    custom_css = ["custom.css"]
