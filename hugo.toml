@@ -10,3 +10,13 @@ theme = 'ananke'
   description = "A point-and-click adventure set in a dark medieval fantasy world"
   site_logo = "/images/logo.png"
   footer_title = "A Beacon"
+
+[[menus.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[menus.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 20
