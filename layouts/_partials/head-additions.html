@@ -1,0 +1,180 @@
+{{/*
+  Project override of theme head-additions. Calls the head-end hook the theme
+  defines, then injects site fonts + custom styles inline.
+*/}}
+{{- partials.Include "hook.html" (dict "hook" "head-end" "context" .) -}}
+<style>
+@font-face {
+  font-family: 'alkhemikal';
+  src: url('/fonts/alkhemikal.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: '04b_03';
+  src: url('/fonts/04B_03__.TTF') format('truetype');
+  font-display: swap;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+  font-family: '04b_03', sans-serif;
+}
+
+.alkhemikal {
+  font-family: 'alkhemikal', sans-serif;
+}
+
+/* Screenshot sidebar layout */
+main[role="main"] {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.screenshot-sidebar {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.screenshot-sidebar__title {
+  text-align: left;
+}
+
+.screenshot-sidebar__list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.screenshot-sidebar__item {
+  flex: 0 0 auto;
+  width: 12rem;
+}
+
+@media screen and (min-width: 60em) {
+  main[role="main"] {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .page-content {
+    flex: 0 1 auto;
+  }
+  .screenshot-sidebar {
+    flex: 0 0 14rem;
+    width: 14rem;
+    padding: 1rem 1rem 1rem 0;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    background: transparent;
+  }
+  .screenshot-sidebar__title { text-align: center; }
+  .screenshot-sidebar__list {
+    flex-direction: column;
+    overflow: visible;
+    gap: 0;
+    padding-bottom: 0;
+  }
+  .screenshot-sidebar__item {
+    width: auto;
+    margin-bottom: 1rem;
+  }
+}
+
+.screenshot-sidebar__img {
+  border-radius: 2px;
+  transition: transform 120ms ease, opacity 120ms ease;
+  opacity: 0.9;
+  cursor: zoom-in;
+}
+
+.screenshot-sidebar__link--video { cursor: pointer; }
+
+.screenshot-sidebar__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 1.25rem;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: background 120ms ease, transform 120ms ease;
+}
+
+.screenshot-sidebar__link--video:hover .screenshot-sidebar__play,
+.screenshot-sidebar__link--video:focus .screenshot-sidebar__play {
+  background: rgba(0, 0, 0, 0.85);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.screenshot-sidebar__link:hover .screenshot-sidebar__img,
+.screenshot-sidebar__link:focus .screenshot-sidebar__img {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  cursor: zoom-out;
+}
+
+.lightbox.is-open { display: flex; }
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox__video {
+  display: none;
+  position: relative;
+  width: min(90vw, 1280px);
+  aspect-ratio: 16 / 9;
+  background: #000;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.lightbox__close:hover,
+.lightbox__close:focus { color: #ddd; outline: none; }
+</style>

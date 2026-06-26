@@ -6,10 +6,10 @@
   (dict "src" "/images/inside-church.jpg" "alt" "Inside the church")
   (dict "src" "/images/stoc.jpg" "alt" "Stocks")
 -}}
-<aside class="screenshot-sidebar dn db-l" aria-label="Screenshots from A Beacon">
+<aside class="screenshot-sidebar" aria-label="Screenshots from A Beacon">
   <h2 class="screenshot-sidebar__title alkhemikal f4 light-silver mt0 mb3 tc">Ye olde examples</h2>
   <ul class="screenshot-sidebar__list list ma0 pa0">
-    <li class="screenshot-sidebar__item mb3">
+    <li class="screenshot-sidebar__item">
       <a href="https://player.vimeo.com/video/1204796885?title=0&byline=0&portrait=0&autoplay=1"
          class="screenshot-sidebar__link screenshot-sidebar__link--video db relative"
          data-lightbox
@@ -23,7 +23,7 @@
       </a>
     </li>
     {{- range $shots }}
-    <li class="screenshot-sidebar__item mb3">
+    <li class="screenshot-sidebar__item">
       <a href="{{ .src }}" class="screenshot-sidebar__link db" data-lightbox data-alt="{{ .alt }}">
         <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy" class="screenshot-sidebar__img db w-100">
       </a>
