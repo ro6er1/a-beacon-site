@@ -4,7 +4,8 @@
       "Bash(hugo --quiet)",
       "Bash(echo \"---EXIT $?\")",
       "Bash(git submodule *)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(git status *)"
     ]
   }
 }
