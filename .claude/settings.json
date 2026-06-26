@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(hugo --quiet)",
-      "Bash(echo \"---EXIT $?\")"
+      "Bash(echo \"---EXIT $?\")",
+      "Bash(git submodule *)",
+      "Bash(git check-ignore *)"
     ]
   }
 }
