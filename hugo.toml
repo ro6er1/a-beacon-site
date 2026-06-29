@@ -10,6 +10,7 @@ theme = 'ananke'
   description = "A point-and-click adventure set in a dark medieval fantasy world"
   site_logo = "/images/logo.png"
   footer_title = "A Beacon"
+  text_color = "washed-yellow"
 
 [[menus.main]]
   name = "Posts"
