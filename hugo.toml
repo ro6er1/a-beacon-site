@@ -13,8 +13,8 @@ theme = 'ananke'
   text_color = "washed-yellow"
 
 [[menus.main]]
-  name = "Posts"
-  url = "/posts/"
+  name = "Home"
+  url = "/"
   weight = 10
 
 [[menus.main]]
