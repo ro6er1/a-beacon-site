@@ -1,0 +1,5 @@
+{{/* SVG favicon (all modern browsers) + optional .ico fallback via site.Params.favicon */}}
+<link rel="icon" type="image/svg+xml" href="{{ urls.RelURL "/favicon.svg" }}" />
+{{ with .Site.Params.favicon }}
+<link rel="alternate icon" href="{{ urls.RelURL . }}" type="image/x-icon" />
+{{ end }}
